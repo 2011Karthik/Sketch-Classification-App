@@ -10,3 +10,29 @@ timer_check="";
 drawn_sketch="";
 answer_holder="";
 score=0;
+
+
+function draw {
+    check_sketch() 
+    if(drawn_sketch==sketch){
+        answer_holder="set";
+        score++;
+        document.getElementById('score').innerHTML='score'+score;
+
+    }
+}
+
+function check_sketch {
+    timer_counter++
+    if(timer_counter>400){
+        timer_counter=0;
+        timer_check="completed"
+    }
+    if(timer_check=='completed'||answer_holder=='set') {
+timer_check="";
+answer_holder="";
+updateCanvas();
+    }
+    
+}
+
